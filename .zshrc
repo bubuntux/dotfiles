@@ -72,6 +72,7 @@ ZSH_CUSTOM=$HOME/.zsh/custom-omz
 plugins=(
 	alias-finder
 	archlinux
+	colored-man-pages
 	command-not-found
 	common-aliases
 	copydir
