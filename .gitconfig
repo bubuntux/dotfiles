@@ -1,0 +1,13 @@
+[core]
+	autocrlf = input
+[user]
+	name = Julio Gutierrez
+	email = lcc.julio@gmail.com
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = 0
+[digg]
+	guitool = meld
+[difftool "nvimdiff"]
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
