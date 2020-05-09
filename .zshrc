@@ -79,12 +79,13 @@ plugins=(
 	cp
 	docker-compose
 	docker
-	dotenv
+#	dotenv
 	extract
 	git
 	gitignore
 	golang
 	history
+	history-substring-search
 	rsync
 	sudo
 	systemd

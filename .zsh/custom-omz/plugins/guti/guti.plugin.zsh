@@ -3,7 +3,6 @@ alias v=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
 alias :q=exit
-alias :qw=exit
 alias :wq=exit
 alias :q!=exit
 
