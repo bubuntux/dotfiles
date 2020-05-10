@@ -72,6 +72,7 @@ ZSH_CUSTOM=$HOME/.zsh/custom-omz
 plugins=(
 	alias-finder
 	archlinux
+	bgnotify
 	colored-man-pages
 	command-not-found
 	common-aliases
@@ -87,6 +88,7 @@ plugins=(
 	golang
 	history
 	history-substring-search
+	httpie
 	rsync
 	sudo
 	systemd
