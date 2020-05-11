@@ -13,3 +13,10 @@
 
 " X 
 	set clipboard=unnamedplus
+
+call plug#begin()
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim'
+
+call plug#end()
