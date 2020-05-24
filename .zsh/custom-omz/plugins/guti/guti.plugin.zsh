@@ -16,4 +16,8 @@ alias omzct="v $HOME/.zsh/custom-omz/themes/guti.zsh-theme"
 alias omzcc="v $HOME/.zsh/custom-omz/guti.conf.zsh"
 
 # Work
-[[ -f /work/bashrc ]] && alias sw='source /work/bashrc'
+if [[ -n ${WORK_TERMINAL} ]]; then
+	source /work/bashrc
+else
+	[[ -f /work/bashrc ]] && alias sw='source /work/bashrc'
+fi

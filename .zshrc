@@ -73,6 +73,7 @@ plugins=(
 	alias-finder
 	archlinux
 	bgnotify
+	cargo
 	colored-man-pages
 	command-not-found
 	common-aliases
@@ -85,13 +86,15 @@ plugins=(
 	extract
 	git
 	gitignore
-	golang
+#	golang
 	history
 	history-substring-search
 	httpie
+	rust
+#	rustup
 	rsync
 	sudo
-	systemd
+#	systemd
 	guti
 )
 

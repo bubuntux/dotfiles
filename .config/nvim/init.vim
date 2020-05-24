@@ -14,9 +14,16 @@
 " X 
 	set clipboard=unnamedplus
 
-call plug#begin()
+"call plug#begin()
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'buoto/gotests-vim'
+"Plug 'rust-lang/rust.vim'
 
-call plug#end()
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'buoto/gotests-vim'
+
+"call plug#end()
+
+"let g:go_debug_windows = {
+"      \ 'vars':       'rightbelow 60vnew',
+"      \ 'stack':      'rightbelow 10new',
+"\ }
