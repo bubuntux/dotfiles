@@ -5,9 +5,8 @@
 	email = lcc.julio@gmail.com
 [diff]
 	tool = nvimdiff
+	guitool = meld
 [difftool]
 	prompt = 0
-[digg]
-	guitool = meld
 [difftool "nvimdiff"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
