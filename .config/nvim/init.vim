@@ -15,7 +15,6 @@ noremap <Right> <NOP>
 " X 
 set clipboard=unnamedplus
 
-
 " ; as :
 nnoremap ; :
 
@@ -48,16 +47,24 @@ nnoremap <C-h> :nohlsearch<cr>
 map H ^
 map L $
 
-"call plug#begin()
+" Plugins
+call plug#begin()
 
-"Plug 'rust-lang/rust.vim'
+Plug 'vim-scripts/Conque-GDB'
 
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"Plug 'buoto/gotests-vim'
+Plug 'dense-analysis/ale'
 
-"call plug#end()
+Plug 'rust-lang/rust.vim'
 
-"let g:go_debug_windows = {
-"      \ 'vars':       'rightbelow 60vnew',
-"      \ 'stack':      'rightbelow 10new',
-"\ }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim'
+
+call plug#end()
+
+" Ale
+let g:ale_fix_on_save = 1
+let g:ale_rust_cargo_use_clippy = 1
+
+" Rust
+let g:rustfmt_autosave = 1
+

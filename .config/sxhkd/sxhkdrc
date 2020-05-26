@@ -17,7 +17,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + e ; {s,r,p}
-	systemctl {suspend,reboot,powerof}
+	systemctl {suspend,reboot,poweroff}
 
 ctrl + t 
 	$HOME/.config/polybar/timer.sh

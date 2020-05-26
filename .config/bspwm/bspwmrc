@@ -12,8 +12,8 @@ xfce4-power-manager &
 killall clipit ; clipit &
 
 bspc monitor eDP-1 -d I II III IV V
-if [[ "$(xrandr --listmonitors | grep DP-2)" ]]; then
-	bspc monitor DP-2  -d VI VII VIII IX X
+if [[ "$(xrandr --listmonitors | grep DP-3)" ]]; then
+	bspc monitor DP-3  -d VI VII VIII IX X
 else
 	bspc monitor eDP-1 -a VI VII VIII IX X
 fi
