@@ -1,6 +1,5 @@
 #! /bin/sh
 
-#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 picom -b &
 wmname LG3D &
 $HOME/.config/polybar/launch.sh &
@@ -44,7 +43,3 @@ bspc rule -a "Microsoft Teams - Preview" 	desktop='^3'  follow=on
 bspc rule -a jetbrains-idea 			desktop='^10' follow=on
 
 bspc config external_rules_command "`dirname "$0"`/external_rules"
-
-#bspc rule -a mplayer2 state=floating
-#bspc rule -a Kupfer.py focus=on
-#bspc rule -a Screenkey manage=off
