@@ -34,9 +34,9 @@ bspc config pointer_follows_monitor 	true
 
 bspc rule -a polybar border=off manage=off
 
-bspc rule -a Pavucontrol state=floating
-bspc rule -a Pamac-manager state=floating
-bspc rule -a Galculator state=floating
+bspc rule -a Pavucontrol 			state=floating
+bspc rule -a Pamac-manager 			state=floating
+bspc rule -a Galculator 			state=floating
 
 bspc rule -a firefox 				desktop='^1'  follow=on
 bspc rule -a firefoxdeveloperedition 		desktop='^2'  follow=on
