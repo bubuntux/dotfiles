@@ -2,6 +2,7 @@
 
 #/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 picom -b &
+wmname LG3D &
 $HOME/.config/polybar/launch.sh &
 nitrogen --restore &
 sxhkd &
@@ -11,7 +12,12 @@ pamac-tray &
 xfce4-power-manager &
 killall clipit ; clipit &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V
+if [[ "$(xrandr --listmonitors | grep DP-2)" ]]; then
+	bspc monitor DP-2  -d VI VII VIII IX X
+else
+	bspc monitor eDP-1 -a VI VII VIII IX X
+fi
 
 bspc config border_width         1
 bspc config window_gap           6
@@ -32,11 +38,13 @@ bspc rule -a Pavucontrol state=floating
 bspc rule -a Pamac-manager state=floating
 bspc rule -a Galculator state=floating
 
+bspc rule -a firefox 				desktop='^1'  follow=on
+bspc rule -a firefoxdeveloperedition 		desktop='^2'  follow=on
+bspc rule -a "Microsoft Teams - Preview" 	desktop='^3'  follow=on
+bspc rule -a jetbrains-idea 			desktop='^10' follow=on
+
 bspc config external_rules_command "`dirname "$0"`/external_rules"
 
-#bspc rule -a zenity:Timer state=floating sticky=on
-#bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Chromium desktop='^2'
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off

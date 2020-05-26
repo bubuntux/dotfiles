@@ -9,7 +9,6 @@ fi
 
 xsetroot -cursor_name left_ptr
 xrdb -merge .Xresources
-wmname LG3D
 numlockx
 
 dbus-launch --sh-syntax --exit-with-session bspwm
