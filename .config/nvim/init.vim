@@ -1,10 +1,18 @@
 " Some basics:
 set nocompatible
 syntax on
-set autoindent
 set encoding=utf-8
-set number
-set relativenumber
+set autoindent
+set shiftwidth=4
+set tabstop=4
+
+" hybrid line numbers
+set number relativenumber
+augroup numbertoggle
+    autocmd!
+	autocmd BufEnter,InsertLeave * set relativenumber
+	autocmd BufLeave,InsertEnter * set norelativenumber
+augroup END
 
 " Break the habit of using arrows
 noremap <Up> <NOP>
@@ -12,23 +20,13 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" X 
+" X
 set clipboard=unnamedplus
 
 " ; as :
 nnoremap ; :
 
-" Ctrl+c and Ctrl+k as Esc
-nnoremap <C-k> <Esc>
-inoremap <C-k> <Esc>
-vnoremap <C-k> <Esc>
-snoremap <C-k> <Esc>
-xnoremap <C-k> <Esc>
-cnoremap <C-k> <Esc>
-onoremap <C-k> <Esc>
-lnoremap <C-k> <Esc>
-tnoremap <C-k> <Esc>
-
+" Ctrl+c as Esc
 nnoremap <C-c> <Esc>
 inoremap <C-c> <Esc>
 vnoremap <C-c> <Esc>
@@ -49,22 +47,34 @@ map L $
 
 " Plugins
 call plug#begin()
-
-Plug 'vim-scripts/Conque-GDB'
-
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+"Plug 'vim-scripts/Conque-GDB'
 Plug 'dense-analysis/ale'
-
-Plug 'rust-lang/rust.vim'
-
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'buoto/gotests-vim'
-
 call plug#end()
 
-" Ale
+" Ale configs
+let g:ale_linters = {
+\	'rust': ['analyzer'],
+\}
+
 let g:ale_fix_on_save = 1
-let g:ale_rust_cargo_use_clippy = 1
+let g:ale_fixers = {
+\	'*': 	['remove_trailing_lines', 'trim_whitespace'],
+\	'sh': 	['shfmt'],
+\	'rust': ['rustfmt'],
+\}
 
-" Rust
-let g:rustfmt_autosave = 1
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+set completeopt=menu,menuone,noselect,noinsert
 
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:airline#extensions#ale#enabled = 1
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+"let g:airline#extensions#tabline#enabled = 1

@@ -6,7 +6,5 @@
 [diff]
 	tool = nvimdiff
 	guitool = meld
-[difftool]
-	prompt = 0
 [difftool "nvimdiff"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

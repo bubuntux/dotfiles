@@ -16,7 +16,6 @@ antigen bundle copyfile
 antigen bundle cp
 antigen bundle docker-compose
 antigen bundle docker
-#antigen bundle	dotenv
 antigen bundle extract
 antigen bundle git
 antigen bundle gitignore
@@ -28,11 +27,16 @@ antigen bundle rustup
 antigen bundle rsync
 antigen bundle sudo
 
+antigen bundle timer
+TIMER_FORMAT='[%d]' 
+TIMER_PRECISION=2 
+
+antigen bundle z
+
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen bundle zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
@@ -61,10 +65,8 @@ alias yaylist='yay -Qet'
 alias yayc='yay -Yc'
 
 # Work
-if [[ -n ${WORK_TERMINAL} ]]; then
-	source /work/bashrc
-else
-	[[ -f /work/bashrc ]] && alias sw='source /work/bashrc'
+if [[ -f /work/bashrc ]]; then
+	alias sw='source /work/bashrc'
 fi
 
 # Theme

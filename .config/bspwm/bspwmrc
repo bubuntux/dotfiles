@@ -4,7 +4,7 @@ picom -b &
 wmname LG3D &
 $HOME/.config/polybar/launch.sh &
 nitrogen --restore &
-sxhkd &
+killall sxhkd ; sxhkd &
 
 nm-applet &
 pamac-tray &
