@@ -55,8 +55,9 @@ call plug#end()
 
 " Ale configs
 let g:ale_linters = {
-\	'rust': ['analyzer'],
+\	'rust': ['analyzer', 'cargo'],
 \}
+let g:ale_rust_cargo_use_clippy = 1
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -67,7 +68,8 @@ let g:ale_fixers = {
 
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
-set completeopt=menu,menuone,noselect,noinsert
+set completeopt=menu,menuone,preview,noselect,noinsert
+set splitbelow
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
