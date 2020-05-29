@@ -1,47 +1,42 @@
-source /usr/share/zsh/share/antigen.zsh
+source "${HOME}/.zgen/zgen.zsh"
 
-antigen use oh-my-zsh
+if ! zgen saved; then
+	zgen oh-my-zsh
+	zgen oh-my-zsh plugins/alias-finder
+	zgen oh-my-zsh plugins/archlinux
+	zgen oh-my-zsh plugins/bgnotify
+	zgen oh-my-zsh plugins/cargo
+	zgen oh-my-zsh plugins/colored-man-pages
+	zgen oh-my-zsh plugins/command-not-found
+	zgen oh-my-zsh plugins/common-aliases
+	zgen oh-my-zsh plugins/copydir
+	zgen oh-my-zsh plugins/copyfile
+	zgen oh-my-zsh plugins/cp
+	zgen oh-my-zsh plugins/docker-compose
+	zgen oh-my-zsh plugins/docker
+	zgen oh-my-zsh plugins/extract
+	zgen oh-my-zsh plugins/git
+	zgen oh-my-zsh plugins/gitignore
+	zgen oh-my-zsh plugins/golang
+	zgen oh-my-zsh plugins/history
+	zgen oh-my-zsh plugins/httpie
+	zgen oh-my-zsh plugins/rust
+	zgen oh-my-zsh plugins/rustup
+	zgen oh-my-zsh plugins/rsync
+	zgen oh-my-zsh plugins/sudo
+	zgen oh-my-zsh plugins/timer
+	zgen oh-my-zsh plugins/z
 
-antigen bundle alias-finder
+	zgen load zsh-users/zsh-syntax-highlighting
+	zgen load zsh-users/zsh-autosuggestions
+	zgen load zsh-users/zsh-completions src
+	zgen load zsh-users/zsh-history-substring-search
+
+	zgen save
+fi
+
 ZSH_ALIAS_FINDER_AUTOMATIC=true
-
-antigen bundle archlinux
-antigen bundle bgnotify
-antigen bundle cargo
-antigen bundle colored-man-pages
-antigen bundle command-not-found
-antigen bundle common-aliases
-antigen bundle copydir
-antigen bundle copyfile
-antigen bundle cp
-antigen bundle docker-compose
-antigen bundle docker
-antigen bundle extract
-antigen bundle git
-antigen bundle gitignore
-antigen bundle golang
-antigen bundle history
-antigen bundle httpie
-antigen bundle rust
-antigen bundle rustup
-antigen bundle rsync
-antigen bundle sudo
-
-antigen bundle timer
-TIMER_FORMAT='[%d]'
-TIMER_PRECISION=2
-
-antigen bundle z
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen bundle zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-
-antigen apply
 
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
@@ -78,3 +73,6 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+TIMER_FORMAT='[%d]'
+TIMER_PRECISION=2
