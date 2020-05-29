@@ -6,14 +6,7 @@ set shiftwidth=4
 set tabstop=4
 set ignorecase
 set smartcase
-
-" hybrid line numbers
 set number relativenumber
-augroup numbertoggle
-	autocmd!
-	autocmd BufEnter,FocusGained,WinEnter,InsertLeave 	* if mode() != "i" | set relativenumber | endif
-	autocmd BufLeave,FocusLost,WinLeave,InsertEnter 	* set norelativenumber
-augroup END
 
 " Break the habit of using arrows
 noremap <Up> <NOP>
@@ -52,14 +45,15 @@ map <C-s> :setlocal spell!<cr>
 " Plugins
 call plug#begin()
 
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-
-" Status bar
+" Visual
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'bubuntux/vim-numbertoggle'
 
-" Lint/fmt/LSP client
+" Coding
+Plug 'junegunn/vim-easy-align'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 
 call plug#end()
@@ -80,6 +74,10 @@ let g:ale_fixers = {
 \	'go':	['gofmt', 'goimports'],
 \	'yaml': ['prettier'],
 \}
+
+" Easy aligns
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Error/Warning navigation
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
