@@ -19,7 +19,7 @@ super + Escape
 super + shift + e ; {s,r,p}
 	systemctl {suspend,reboot,poweroff}
 
-ctrl + t 
+super + alt + t
 	$HOME/.config/polybar/timer.sh
 #
 # bspwm hotkeys

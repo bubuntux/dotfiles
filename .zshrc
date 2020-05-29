@@ -28,8 +28,8 @@ antigen bundle rsync
 antigen bundle sudo
 
 antigen bundle timer
-TIMER_FORMAT='[%d]' 
-TIMER_PRECISION=2 
+TIMER_FORMAT='[%d]'
+TIMER_PRECISION=2
 
 antigen bundle z
 
@@ -65,16 +65,14 @@ alias yaylist='yay -Qet'
 alias yayc='yay -Yc'
 
 # Work
-if [[ -f /work/bashrc ]]; then
-	alias sw='source /work/bashrc'
-fi
+[[ -f /work/bashrc ]] && alias sw='source /work/bashrc'
 
 # Theme
-echo $USER@$HOST  $(uname -srm) 
+echo $USER@$HOST  $(uname -srm)
 
-PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b " 
+PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b "
 PROMPT+='$(git_prompt_info)'
-PROMPT+=">%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b " 
+PROMPT+=">%{$fg[cyan]%}>%B%(?.%{$fg[cyan]%}.%{$fg[red]%})>%{$reset_color%}%b "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
