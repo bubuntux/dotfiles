@@ -1,5 +1,6 @@
 source "${HOME}/.zgen/zgen.zsh"
 
+# Plugins
 if ! zgen saved; then
 	zgen oh-my-zsh
 	zgen oh-my-zsh plugins/alias-finder
@@ -38,14 +39,14 @@ fi
 ZSH_ALIAS_FINDER_AUTOMATIC=true
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt extendedglob         # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob           # Case insensitive globbing
+setopt rcexpandparam        # Array expension with parameters
+setopt nocheckjobs          # Don't warn about running processes when exiting
+setopt numericglobsort      # Sort filenames numerically when it makes sense
+setopt nobeep               # No beep
+setopt appendhistory        # Immediately append history instead of overwriting
+setopt histignorealldups	# If a new command is a duplicate, remove the older one
 
 # vim
 alias v=$EDITOR
@@ -64,6 +65,8 @@ alias yayc='yay -Yc'
 
 # Theme
 echo $USER@$HOST  $(uname -srm)
+
+[[ -x "$(which lolcat)" ]] && alias cat=lolcat
 
 PROMPT="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b "
 PROMPT+='$(git_prompt_info)'

@@ -55,6 +55,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -85,16 +86,21 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Autcomplete
 set splitbelow
-set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " Debug
-packadd termdebug
+augroup rust_debug
+	autocmd!
+	autocmd FileType rust	packadd termdebug			|
+						\   let termdebugger='rust-gdb' |
+augroup END
 
 " Status bar
 let g:airline_theme='simple'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#ale#enabled = 1
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
